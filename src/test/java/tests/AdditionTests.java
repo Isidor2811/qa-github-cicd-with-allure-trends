@@ -15,4 +15,9 @@ public class AdditionTests {
         Assert.assertEquals(5 + 1, 7, "Expected 5+1 to be equals to 7");
     }
 
+    @Test
+    public void thirdAdditionTest() {
+        Assert.assertEquals(5 + 2, 7, "Expected 5+2 to be equals to 7");
+    }
+
 }
