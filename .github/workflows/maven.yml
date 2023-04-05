@@ -27,6 +27,7 @@ jobs:
           name: allure-history-artifact
           path: allure-history-temp
           if_no_artifact_found: warn
+          skip_unpack: true
       
       - name: Print all files
         run: ls -R
