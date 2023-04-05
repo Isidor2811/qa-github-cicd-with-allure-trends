@@ -1,5 +1,6 @@
 package tests;
 
+import framework.PropertyLoader;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -8,6 +9,7 @@ public class AdditionTests {
     @Test
     public void firstAdditionTest() {
         Assert.assertEquals(5 + 5, 10, "Expected 5+5 to be equals to 10");
+        System.out.println(PropertyLoader.getProperty("BASE_URL"));
     }
 
     @Test

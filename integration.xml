@@ -1,0 +1,24 @@
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
+
+<suite name="Smoke">
+
+    <test name="Addition_1">
+        <classes>
+            <class name="tests.AdditionTests"/>
+        </classes>
+    </test>
+
+    <test name="Addition_2">
+        <classes>
+            <class name="tests.AdditionTests"/>
+        </classes>
+    </test>
+
+
+    <test name="Addition_3">
+        <classes>
+            <class name="tests.AdditionTests"/>
+        </classes>
+    </test>
+
+</suite>
