@@ -27,7 +27,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Run tests
-        run: mvn clean test -Dsuite=${{ github.event.inputs.suite }} -P ${{ github.event.inputs.environment }}
+        run: mvn clean test -Dsuite=${{ github.event.inputs.suite }}.xml -P ${{ github.event.inputs.environment }}
         
       - name: Create a temp folder for allure history
         run: mkdir allure-history-temp
