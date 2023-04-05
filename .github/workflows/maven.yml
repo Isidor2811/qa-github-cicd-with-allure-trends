@@ -46,3 +46,5 @@ jobs:
           
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v2
+        with:
+          name: allure-history-artifact
