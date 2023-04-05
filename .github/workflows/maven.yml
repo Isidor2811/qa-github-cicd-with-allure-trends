@@ -13,11 +13,20 @@ jobs:
       - name: Run tests
         run: mvn clean test
         
+      - name: Display structure of downloaded files
+        run: ls -R
+        
       - name: Generate report
         run: mvn allure::report
         
+      - name: Display structure of downloaded files
+        run: ls -R
+        
       - name: Create a temp folder for allure history
         run: mkdir allure-history-temp
+        
+      - name: Display structure of downloaded files
+        run: ls -R
       
       - name: Download artifact (allure history folder) 
         uses: actions/download-artifact@v3
