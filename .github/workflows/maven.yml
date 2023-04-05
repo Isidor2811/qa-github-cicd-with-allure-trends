@@ -13,34 +13,26 @@ jobs:
       - name: Run tests
         run: mvn clean test
         
-      - name: Display structure of downloaded files
-        run: ls -R
-        
-      - name: Upload artifacts (allure history folder)
-        uses: actions/upload-artifact@v3
-        with:
-          name: allure-history-folder
-          path: target/allure-report/history
-        
-      - name: Generate report
-        run: mvn allure::report
-        
-      - name: Display structure of downloaded files
-        run: ls -R
-        
       - name: Create a temp folder for allure history
         run: mkdir allure-history-temp
         
-      - name: Display structure of downloaded files
+      - name: Print all files
         run: ls -R
-      
-      - name: Download artifact (allure history folder) 
-        uses: actions/download-artifact@v3
+        
+      - name: Download artifact
+        id: download-artifact
+        uses: dawidd6/action-download-artifact@v2
         with:
-          name: allure-history-folder
-          
-      - name: Display structure of downloaded files
+          workflow: maven.yml
+          name: allure-history-artifact
+          path: allure-history-temp
+          if_no_artifact_found: warn
+      
+      - name: Print all files
         run: ls -R
+        
+      - name: Generate report
+        run: mvn allure::report
         
       - name: Setup Pages
         uses: actions/configure-pages@v3
@@ -48,6 +40,7 @@ jobs:
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
+          name: allure-history-artifact
           path: 'target/allure-report'
           retention-days: 30
           if-no-files-found: ignore
