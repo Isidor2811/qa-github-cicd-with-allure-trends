@@ -40,7 +40,7 @@ jobs:
       - name: Move history folder to allure-results
         run: |
           mkdir target/allure-results/history/
-          mv aluretmp/history/* target/allure-results/history/
+          mv allure-history-temp/history/* target/allure-results/history/
           
       - name: Print all files
         run: ls -R
