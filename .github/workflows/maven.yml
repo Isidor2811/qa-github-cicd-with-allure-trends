@@ -69,7 +69,7 @@ jobs:
         uses: dawidd6/action-download-artifact@v2
         with:
           workflow: maven.yml
-          name: allure-history-artifact-${{ github.event.inputs.suite }}
+          name: allure-history-artifact-${{ github.event.inputs.suite }}-${{ github.event.inputs.environment }}
           path: allure-history-temp
           search_artifacts: true
           if_no_artifact_found: warn
@@ -101,11 +101,11 @@ jobs:
       - name: Upload GitHub Pages artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          name: allure-history-artifact-${{ github.event.inputs.suite }}
+          name: allure-history-artifact-${{ github.event.inputs.suite }}-${{ github.event.inputs.environment }}
           path: 'target/allure-report'
           retention-days: 30
           
       - name: Deploy GitHub Pages site
         uses: actions/deploy-pages@v2
         with:
-          artifact_name: allure-history-artifact-${{ github.event.inputs.suite }}
+          artifact_name: allure-history-artifact-${{ github.event.inputs.suite }}-${{ github.event.inputs.environment }}
