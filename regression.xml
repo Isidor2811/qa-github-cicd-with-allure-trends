@@ -10,7 +10,7 @@
 
     <test name="Addition_2">
         <classes>
-            <class name="tests.AdditionTests"/>
+            <class name="tests.AdditionTests2"/>
         </classes>
     </test>
 

@@ -10,14 +10,14 @@
 
     <test name="Addition_2">
         <classes>
-            <class name="tests.AdditionTests"/>
+            <class name="tests.AdditionTests2"/>
         </classes>
     </test>
 
 
     <test name="Addition_3">
         <classes>
-            <class name="tests.AdditionTests"/>
+            <class name="tests.AdditionTests3"/>
         </classes>
     </test>
 
