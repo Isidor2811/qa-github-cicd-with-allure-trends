@@ -83,6 +83,12 @@ jobs:
         run: |
           mkdir target/allure-results/history/
           mv allure-history-temp/history/* target/allure-results/history/
+          
+      - name: Create environemnt properties file for allure report
+        run: |
+          cat > target/allure-results/environment.properties << EOF
+          SERVER=${{ github.event.inputs.environment }}
+          EOF
         
       - name: Generate report
         run: mvn allure::report
