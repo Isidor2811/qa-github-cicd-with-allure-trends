@@ -30,7 +30,7 @@ jobs:
       - name: Create property files
         run: |
           mkdir src/main/resources/env
-          cd src/main/resources/env && touch dev-config.properties.properties && touch stage-config.properties.properties && touch test-config.properties.properties 
+          cd src/main/resources/env && touch dev-config.properties && touch stage-config.properties && touch test-config.properties
       
       - name: Get properties for dev
         run: |
