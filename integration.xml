@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd" >
 
-<suite name="Smoke">
+<suite name="Integration">
 
     <test name="Addition_1">
         <classes>
