@@ -26,6 +26,30 @@ jobs:
       - name: Fetch code on runner
         uses: actions/checkout@v3
         
+        
+      - name: Create property files
+        run: |
+          mkdir src/main/resources/env
+          cd src/main/resources/env && touch dev-config.properties.properties && touch stage-config.properties.properties && touch test-config.properties.properties 
+      
+      - name: Get properties for dev
+        run: |
+          cat > src/main/resources/dev-config.properties << EOF
+          ${{ secrets.SECRETS_DEV }}
+          EOF
+          
+      - name: Get properties for stage
+        run: |
+          cat > src/main/resources/stage-config.properties << EOF
+          ${{ secrets.SECRETS_STAGE }}
+          EOF
+          
+      - name: Get properties for test
+        run: |
+          cat > src/main/resources/test-config.properties << EOF
+          ${{ secrets.SECRETS_TEST }}
+          EOF
+      
       - name: Run tests
         run: mvn clean test -Dsuite=${{ github.event.inputs.suite }}.xml -P ${{ github.event.inputs.environment }}
         
