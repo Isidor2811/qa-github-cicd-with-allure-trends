@@ -22,4 +22,14 @@ public class AdditionTests2 {
         Assert.assertEquals(5 + 2, 7, "Expected 5+2 to be equals to 7");
     }
 
+    @Test
+    public void thirdAdditionTest8() {
+        Assert.assertEquals(5 + 2, 7, "Expected 5+2 to be equals to 7");
+    }
+
+    @Test
+    public void thirdAdditionTest9() {
+        Assert.assertEquals(5 + 2, 7, "Expected 5+2 to be equals to 7");
+    }
+
 }
