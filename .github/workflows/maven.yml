@@ -80,6 +80,7 @@ jobs:
           tar -xf artifact.tar
           
       - name: Move history folder to allure-results
+        continue-on-error: true
         run: |
           mkdir target/allure-results/history/
           mv allure-history-temp/history/* target/allure-results/history/
