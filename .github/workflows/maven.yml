@@ -26,7 +26,6 @@ jobs:
       - name: Fetch code on runner
         uses: actions/checkout@v3
         
-        
       - name: Create property files
         run: |
           mkdir src/main/resources/env
@@ -35,21 +34,27 @@ jobs:
       - name: Get properties for dev
         if: ${{ github.event.inputs.environment == 'dev' }}
         run: |
-          cat > src/main/resources/dev-config.properties << EOF
+          cat > src/main/resources/env/dev-config.properties << EOF
           ${{ secrets.SECRETS_DEV }}
           EOF
+          
+      #- name: Read file (TMP)
+       # run: |
+        #  cd src/main/resources/
+         # cat dev-config.properties
+         # cd src/main/resources/
           
       - name: Get properties for stage
         if: ${{ github.event.inputs.environment == 'stage' }}
         run: |
-          cat > src/main/resources/stage-config.properties << EOF
+          cat > src/main/resources/env/stage-config.properties << EOF
           ${{ secrets.SECRETS_STAGE }}
           EOF
           
       - name: Get properties for test
         if: ${{ github.event.inputs.environment == 'test' }}
         run: |
-          cat > src/main/resources/test-config.properties << EOF
+          cat > src/main/resources/env/test-config.properties << EOF
           ${{ secrets.SECRETS_TEST }}
           EOF
       
