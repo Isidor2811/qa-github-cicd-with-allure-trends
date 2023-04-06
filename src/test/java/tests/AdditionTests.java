@@ -9,7 +9,7 @@ public class AdditionTests {
     @Test
     public void firstAdditionTest1() {
         Assert.assertEquals(5 + 5, 10, "Expected 5+5 to be equals to 10");
-        System.out.println(PropertyLoader.getProperty("BASE_URL"));
+        Assert.assertEquals(PropertyLoader.getProperty("BASE_URL"), "dev", "Check properties");
     }
 
     @Test
