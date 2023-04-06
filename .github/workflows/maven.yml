@@ -33,18 +33,21 @@ jobs:
           cd src/main/resources/env && touch dev-config.properties && touch stage-config.properties && touch test-config.properties
       
       - name: Get properties for dev
+        if: ${{ github.event.inputs.environment == 'dev' }}
         run: |
           cat > src/main/resources/dev-config.properties << EOF
           ${{ secrets.SECRETS_DEV }}
           EOF
           
       - name: Get properties for stage
+        if: ${{ github.event.inputs.environment == 'stage' }}
         run: |
           cat > src/main/resources/stage-config.properties << EOF
           ${{ secrets.SECRETS_STAGE }}
           EOF
           
       - name: Get properties for test
+        if: ${{ github.event.inputs.environment == 'test' }}
         run: |
           cat > src/main/resources/test-config.properties << EOF
           ${{ secrets.SECRETS_TEST }}
