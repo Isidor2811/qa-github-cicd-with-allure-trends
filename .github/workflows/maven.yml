@@ -26,6 +26,12 @@ jobs:
       - name: Fetch code on runner
         uses: actions/checkout@v3
         
+      - name: Cache maven dependencies
+        uses: actions/cache@v3
+        with:
+          path: ~/.m2/repository
+          key: mavem-dependencies-${{ hashFiles('**/pom.xml') }}
+        
       - name: Create property files
         run: |
           mkdir src/main/resources/env
@@ -37,12 +43,6 @@ jobs:
           cat > src/main/resources/env/dev-config.properties << EOF
           ${{ secrets.SECRETS_DEV }}
           EOF
-          
-      #- name: Read file (TMP)
-       # run: |
-        #  cd src/main/resources/
-         # cat dev-config.properties
-         # cd src/main/resources/
           
       - name: Get properties for stage
         if: ${{ github.event.inputs.environment == 'stage' }}
